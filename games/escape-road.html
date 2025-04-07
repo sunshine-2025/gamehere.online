@@ -3,119 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape Road - Thrilling City Driving Adventure | GameHere</title>
-    <meta name="description" content="Play Escape Road online - Navigate through challenging city streets, dodge obstacles, and master the art of escape driving in this exciting racing adventure game.">
-    <link rel="canonical" href="https://gamehere.online/games/escape-road.html">
+    <title>Escape Road - GameHere</title>
+    <meta name="description" content="Play Escape Road online - Navigate through challenging city streets in this thrilling driving adventure.">
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Tailwind configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        apple: {
-                            gray: '#8E8E93',
-                            blue: '#007AFF',
-                            background: '#F5F5F7',
-                            dark: '#1D1D1F'
-                        }
+                        'apple-blue': '#007AFF',
+                        'apple-dark': '#1D1D1F',
+                        'apple-gray': '#86868B',
+                        'apple-background': '#F5F5F7'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-apple-background min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-4xl">
+<body class="bg-apple-background">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Back Button -->
-        <div class="mb-6">
-            <a href="../index.html" class="text-apple-blue hover:text-apple-dark flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-                Back to Games
-            </a>
+        <a href="../index.html" class="inline-flex items-center text-apple-blue hover:text-apple-dark mb-8">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Back to Games
+        </a>
+
+        <!-- Game Header -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+            <div class="aspect-w-16 aspect-h-9">
+                <img src="../assets/images/escape-road-preview.jpg" alt="Escape Road Preview" class="w-full h-full object-cover">
+            </div>
+            <div class="p-6">
+                <h1 class="text-3xl font-bold text-apple-dark mb-2">Escape Road</h1>
+                <p class="text-apple-gray mb-4">Navigate through challenging city streets in this thrilling driving adventure.</p>
+                <div class="flex items-center space-x-4">
+                    <span class="px-3 py-1 bg-apple-blue text-white rounded-full text-sm">Racing</span>
+                    <span class="text-apple-gray">•</span>
+                    <span class="text-apple-gray">Free to Play</span>
+                </div>
+            </div>
         </div>
 
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-6xl font-bold text-apple-blue mb-4">
-                Escape Road
-            </h1>
-            <p class="text-xl md:text-2xl text-apple-gray">
-                Master the streets in this high-stakes driving adventure
-            </p>
-        </header>
-
-        <!-- Game Section -->
-        <section class="mb-12">
-            <div class="aspect-w-16 aspect-h-9 bg-black rounded-xl overflow-hidden shadow-xl">
-                <iframe 
-                    src="https://1games.io/embed/escape-road-city-2"
-                    class="w-full h-[600px] md:h-[700px]"
-                    allow="autoplay; fullscreen"
-                    frameborder="0"
-                    title="Escape Road Online Game"
-                ></iframe>
-            </div>
-        </section>
-
-        <!-- Game Information -->
-        <section class="space-y-8">
-            <div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-4">
-                    About Escape Road
-                </h2>
-                <p class="text-gray-700 leading-relaxed">
-                    Escape Road puts you in the driver's seat of an intense urban adventure. Navigate through bustling city streets, avoid obstacles, and perfect your driving skills in this thrilling escape driving experience.
-                </p>
+        <!-- Game Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Game Frame -->
+            <div class="lg:col-span-3">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe src="https://1games.io/embed/escape-road-city-2" 
+                                frameborder="0" 
+                                class="w-full min-h-[600px] lg:min-h-[700px]"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-4">
-                    Game Controls
-                </h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Arrow Keys or WASD - Control vehicle movement</li>
-                    <li>Space Bar - Emergency brake</li>
-                    <li>Shift - Boost speed (when available)</li>
-                    <li>P - Pause game</li>
-                </ul>
-            </div>
+            <!-- Game Info -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-lg p-6 space-y-6">
+                    <div>
+                        <h2 class="text-xl font-semibold text-apple-dark mb-3">About the Game</h2>
+                        <p class="text-apple-gray">Escape Road puts you in the driver's seat of an intense urban adventure. Navigate through bustling city streets, avoid obstacles, and perfect your driving skills.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-apple-dark mb-2">Controls</h3>
+                        <ul class="text-apple-gray space-y-1.5 text-sm">
+                            <li>• Arrow Keys / WASD - Move</li>
+                            <li>• Space Bar - Brake</li>
+                            <li>• Shift - Boost speed</li>
+                            <li>• P - Pause game</li>
+                        </ul>
+                    </div>
 
-            <div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-4">
-                    Key Features
-                </h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Dynamic city environments with realistic traffic</li>
-                    <li>Multiple challenging levels and missions</li>
-                    <li>Responsive vehicle controls</li>
-                    <li>Progressive difficulty system</li>
-                    <li>Various vehicles to unlock</li>
-                </ul>
-            </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-apple-dark mb-2">Features</h3>
+                        <ul class="text-apple-gray space-y-1.5 text-sm">
+                            <li>• Dynamic city environments</li>
+                            <li>• Multiple challenging levels</li>
+                            <li>• Various vehicles to unlock</li>
+                        </ul>
+                    </div>
 
-            <div>
-                <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-4">
-                    Tips for Success
-                </h2>
-                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                    <li>Master the timing of your turns</li>
-                    <li>Watch out for traffic patterns</li>
-                    <li>Use shortcuts to gain advantages</li>
-                    <li>Maintain your vehicle's condition</li>
-                </ul>
+                    <div>
+                        <h3 class="text-lg font-semibold text-apple-dark mb-2">Tips</h3>
+                        <ul class="text-apple-gray space-y-1.5 text-sm">
+                            <li>• Master your turns timing</li>
+                            <li>• Watch traffic patterns</li>
+                            <li>• Use available shortcuts</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="mt-12 text-center text-apple-gray">
-            <p class="text-sm">
-                © 2024 GameHere.online - Your destination for exciting online games
-            </p>
-        </footer>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <p class="text-center text-apple-gray">&copy; 2024 GameHere - Your Online Gaming Destination</p>
+        </div>
+    </footer>
 </body>
 </html> 
