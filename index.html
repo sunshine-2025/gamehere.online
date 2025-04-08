@@ -3,177 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHere - Your Ultimate Gaming Destination</title>
-    <meta name="description" content="Play the best online games for free. Choose from racing, action, puzzle and more exciting games.">
-    <link rel="canonical" href="https://gamehere.online">
+    <title>GameHere - Your Online Gaming Destination</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Tailwind configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        apple: {
-                            gray: '#8E8E93',
-                            blue: '#007AFF',
-                            background: '#F5F5F7',
-                            dark: '#1D1D1F'
-                        }
+                        'theme-blue': '#29b6f6',
+                        'theme-dark': '#1e88e5',
+                        'theme-light': '#e3f2fd'
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-apple-background min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Header Section -->
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-6xl font-bold text-apple-blue mb-4">
-                GameHere
-            </h1>
-            <p class="text-xl md:text-2xl text-apple-gray">
-                Your Ultimate Gaming Destination
-            </p>
-        </header>
-
-        <!-- Enhanced Navigation -->
-        <nav class="mb-12">
-            <!-- Main Categories -->
-            <div class="flex flex-wrap justify-center gap-4 mb-6">
-                <a href="#all" class="px-6 py-2 bg-apple-blue text-white rounded-full hover:bg-apple-dark transition-colors">All Games</a>
-                <a href="#action" class="px-6 py-2 bg-white text-apple-dark rounded-full hover:bg-apple-blue hover:text-white transition-colors">Action</a>
-                <a href="#racing" class="px-6 py-2 bg-white text-apple-dark rounded-full hover:bg-apple-blue hover:text-white transition-colors">Racing</a>
-                <a href="#puzzle" class="px-6 py-2 bg-white text-apple-dark rounded-full hover:bg-apple-blue hover:text-white transition-colors">Puzzle</a>
-                <a href="#music" class="px-6 py-2 bg-white text-apple-dark rounded-full hover:bg-apple-blue hover:text-white transition-colors">Music</a>
-                <a href="#sports" class="px-6 py-2 bg-white text-apple-dark rounded-full hover:bg-apple-blue hover:text-white transition-colors">Sports</a>
-            </div>
-            
-            <!-- Search Bar -->
-            <div class="max-w-2xl mx-auto mb-8">
-                <div class="relative">
-                    <input type="search" 
-                           placeholder="Search games..." 
-                           class="w-full px-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:border-apple-blue"
-                    >
-                    <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Featured Games Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-6">Featured Games</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Game Card 1 -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                    <a href="games/escape-road.html">
-                        <div class="aspect-w-16 aspect-h-9 bg-black">
-                            <img src="assets/images/escape-road-preview.jpg" alt="Escape Road Preview" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-xl font-semibold text-apple-dark">Escape Road</h3>
-                                <span class="px-2 py-1 bg-apple-blue text-white text-sm rounded-full">Racing</span>
-                            </div>
-                            <p class="text-apple-gray">Navigate through challenging city streets in this thrilling driving adventure.</p>
-                        </div>
+<body class="bg-theme-light min-h-screen">
+    <!-- Navigation Bar -->
+    <nav class="bg-theme-blue shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-white text-2xl font-bold">GameHere</span>
                     </a>
                 </div>
 
-                <!-- Game Card 2 - Music Now -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                    <a href="games/music-now.html">
-                        <div class="aspect-w-16 aspect-h-9 bg-black">
-                            <img src="assets/images/music-now-preview.jpg" alt="Music Now Preview" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-xl font-semibold text-apple-dark">Music Now</h3>
-                                <span class="px-2 py-1 bg-apple-blue text-white text-sm rounded-full">Music</span>
-                            </div>
-                            <p class="text-apple-gray">Create beautiful melodies and explore the world of music.</p>
-                        </div>
-                    </a>
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#racing" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Racing</a>
+                    <a href="#music" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Music</a>
+                    <a href="#sports" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Sports</a>
+                    <a href="#action" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Action</a>
+                    <a href="#puzzle" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Puzzle</a>
                 </div>
 
-                <!-- Game Card 3 - Archery World Tour -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                    <a href="games/archery-world-tour.html">
-                        <div class="aspect-w-16 aspect-h-9 bg-black">
-                            <img src="assets/images/archery-world-tour-preview.jpg" alt="Archery World Tour Preview" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-xl font-semibold text-apple-dark">Archery World Tour</h3>
-                                <span class="px-2 py-1 bg-apple-blue text-white text-sm rounded-full">Sport</span>
-                            </div>
-                            <p class="text-apple-gray">Test your archery skills in exotic locations around the world!</p>
-                        </div>
-                    </a>
+                <!-- Language Selector -->
+                <div class="flex items-center">
+                    <select class="bg-white text-gray-800 rounded px-2 py-1">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
                 </div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- New Games Section -->
-        <section class="mb-12">
-            <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-6">New Games</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Add new game cards here -->
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="mb-12 bg-white rounded-xl p-8">
-            <h2 class="text-2xl md:text-3xl font-semibold text-apple-blue mb-6 text-center">Why Choose GameHere?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-12 h-12 mx-auto text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Game Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+            <!-- Escape Road -->
+            <a href="games/escape-road.html" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
+                    <div class="relative pb-[100%]">
+                        <img src="assets/images/escape-road-preview.jpg" alt="Escape Road" class="absolute inset-0 w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold text-apple-dark mb-2">Completely Free</h3>
-                    <p class="text-apple-gray">All games are completely free, no hidden fees</p>
-                </div>
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-12 h-12 mx-auto text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Escape Road</h3>
+                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Racing</span>
                     </div>
-                    <h3 class="text-xl font-semibold text-apple-dark mb-2">Play Instantly</h3>
-                    <p class="text-apple-gray">No downloads required, play directly in your browser</p>
                 </div>
-                <div class="text-center">
-                    <div class="mb-4">
-                        <svg class="w-12 h-12 mx-auto text-apple-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-apple-dark mb-2">Regular Updates</h3>
-                    <p class="text-apple-gray">New games and features added regularly</p>
-                </div>
-            </div>
-        </section>
+            </a>
 
-        <!-- Footer -->
-        <footer class="mt-12 text-center text-apple-gray">
-            <div class="mb-4">
-                <a href="#" class="mx-2 hover:text-apple-blue">About Us</a>
-                <a href="#" class="mx-2 hover:text-apple-blue">Contact</a>
-                <a href="#" class="mx-2 hover:text-apple-blue">Terms of Use</a>
-                <a href="#" class="mx-2 hover:text-apple-blue">Privacy Policy</a>
-            </div>
-            <p class="text-sm">
-                © 2024 GameHere.online - Your Online Gaming Destination
-            </p>
-        </footer>
-    </div>
+            <!-- Music Now -->
+            <a href="games/music-now.html" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
+                    <div class="relative pb-[100%]">
+                        <img src="assets/images/music-now-preview.jpg" alt="Music Now" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Music Now</h3>
+                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Music</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Archery World Tour -->
+            <a href="games/archery-world-tour.html" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
+                    <div class="relative pb-[100%]">
+                        <img src="assets/images/archery-world-tour-preview.jpg" alt="Archery World Tour" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Archery World Tour</h3>
+                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Sport</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <p class="text-center text-gray-600">&copy; 2024 GameHere - Your Online Gaming Destination</p>
+        </div>
+    </footer>
 </body>
 </html> 
