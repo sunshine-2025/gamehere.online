@@ -3,104 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameHere - Your Online Gaming Destination</title>
+    <title>GameHere - Play Awesome Games Online!</title>
+    <meta name="description" content="Play the best online games for free. Choose from racing, action, puzzle and more exciting games.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'theme-blue': '#29b6f6',
-                        'theme-dark': '#1e88e5',
-                        'theme-light': '#e3f2fd'
+                        'game-primary': '#6C5CE7',
+                        'game-secondary': '#A3A1FF',
+                        'game-accent': '#00D2D3',
+                        'game-dark': '#2D3436',
+                        'game-light': '#DFE6E9'
+                    },
+                    fontFamily: {
+                        'game': ['"Press Start 2P"', 'cursive'],
+                        'body': ['Rubik', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-soft': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #6C5CE7, #00D2D3);
+            z-index: -1;
+            margin: -2px;
+            border-radius: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .game-card:hover::before {
+            opacity: 1;
+        }
+        .game-gradient {
+            background: linear-gradient(135deg, #6C5CE7 0%, #00D2D3 100%);
+        }
+        .game-preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+        }
+        .game-card-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-preview-container {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            overflow: hidden;
+        }
+        .game-preview-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .game-card {
+            transition: all 0.3s ease;
+        }
+        .game-card.hidden {
+            display: none;
+        }
+        .category-btn.active {
+            background-color: #6C5CE7;
+            color: white;
+        }
+    </style>
 </head>
-<body class="bg-theme-light min-h-screen">
-    <!-- Navigation Bar -->
-    <nav class="bg-theme-blue shadow-lg">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <a href="/" class="flex items-center">
-                        <span class="text-white text-2xl font-bold">GameHere</span>
-                    </a>
-                </div>
+<body class="bg-game-dark min-h-screen font-body text-game-light">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0 opacity-10">
+        <div class="absolute inset-0 game-gradient"></div>
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+    </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#racing" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Racing</a>
-                    <a href="#music" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Music</a>
-                    <a href="#sports" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Sports</a>
-                    <a href="#action" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Action</a>
-                    <a href="#puzzle" class="text-white hover:bg-theme-dark px-3 py-2 rounded-md">Puzzle</a>
-                </div>
+    <div class="relative z-10">
+        <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+                <h1 class="font-game text-5xl md:text-6xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent animate-pulse-soft">
+                    GameHere
+            </h1>
+                <p class="text-xl md:text-2xl text-game-secondary font-medium">
+                    Level Up Your Gaming Experience!
+            </p>
+        </header>
 
-                <!-- Language Selector -->
-                <div class="flex items-center">
-                    <select class="bg-white text-gray-800 rounded px-2 py-1">
-                        <option value="en">English</option>
-                        <option value="zh">中文</option>
-                    </select>
+            <!-- Enhanced Navigation -->
+            <nav class="mb-12">
+                <!-- Main Categories -->
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <button onclick="filterGames('all')" class="category-btn active px-6 py-3 bg-game-primary text-white rounded-lg hover:bg-game-secondary transform hover:scale-105 transition-all font-medium">All Games</button>
+                    <button onclick="filterGames('action')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Action</button>
+                    <button onclick="filterGames('racing')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Racing</button>
+                    <button onclick="filterGames('puzzle')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Puzzle</button>
+                    <button onclick="filterGames('music')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Music</button>
+                    <button onclick="filterGames('sports')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Sports</button>
                 </div>
+                
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto mb-8">
+                    <div class="relative">
+                        <input type="search" 
+                               placeholder="Search your next adventure..." 
+                               class="w-full px-6 py-3 rounded-lg bg-game-dark border-2 border-game-primary focus:outline-none focus:border-game-accent text-game-light placeholder-game-secondary"
+                        >
+                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-game-primary hover:text-game-accent transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Featured Games Section -->
+            <section class="mb-16">
+                <h2 class="font-game text-2xl md:text-3xl mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent">Featured Games</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Game Card 1 -->
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="racing">
+                        <a href="games/escape-road.html" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="assets/images/escape-road-preview.jpg.png" alt="Escape Road Preview" class="game-preview-image">
+                                <div class="absolute top-4 right-4">
+                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Racing</span>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-game-light mb-2">Escape Road</h3>
+                                <p class="text-game-secondary">Navigate through challenging city streets in this thrilling driving adventure.</p>
+                                <div class="mt-4 flex items-center text-game-accent">
+                                    <span class="text-sm font-medium">Play Now</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Game Card 2 -->
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="music">
+                        <a href="games/music-now.html" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="assets/images/music-now-preview.jpg.png" alt="Music Now Preview" class="game-preview-image">
+                                <div class="absolute top-4 right-4">
+                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Music</span>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-game-light mb-2">Music Now</h3>
+                                <p class="text-game-secondary">Create beautiful melodies and explore the world of music.</p>
+                                <div class="mt-4 flex items-center text-game-accent">
+                                    <span class="text-sm font-medium">Play Now</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Game Card 3 -->
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="sports">
+                        <a href="games/archery-world-tour.html" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="assets/images/archery-world-tour-preview.jpg.png" alt="Archery World Tour Preview" class="game-preview-image">
+                                <div class="absolute top-4 right-4">
+                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Sport</span>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow">
+                                <h3 class="text-xl font-bold text-game-light mb-2">Archery World Tour</h3>
+                                <p class="text-game-secondary">Test your archery skills in exotic locations around the world!</p>
+                                <div class="mt-4 flex items-center text-game-accent">
+                                    <span class="text-sm font-medium">Play Now</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
             </div>
-        </div>
-    </nav>
+        </section>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-        <!-- Game Grid -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            <!-- Escape Road -->
-            <a href="games/escape-road.html" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
-                    <div class="relative pb-[100%]">
-                        <img src="assets/images/escape-road-preview.jpg" alt="Escape Road" class="absolute inset-0 w-full h-full object-cover">
+            <!-- Features Section -->
+            <section class="mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-game-dark bg-opacity-50 rounded-xl p-8 transform hover:scale-105 transition-all duration-300">
+                        <div class="mb-4 text-game-accent">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-game-light mb-2">Free to Play</h3>
+                        <p class="text-game-secondary">Jump into the action without spending a coin!</p>
                     </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Escape Road</h3>
-                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Racing</span>
-                    </div>
+                    <div class="bg-game-dark bg-opacity-50 rounded-xl p-8 transform hover:scale-105 transition-all duration-300">
+                        <div class="mb-4 text-game-accent">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-game-light mb-2">Instant Play</h3>
+                        <p class="text-game-secondary">No downloads needed - play right in your browser!</p>
+            </div>
+                    <div class="bg-game-dark bg-opacity-50 rounded-xl p-8 transform hover:scale-105 transition-all duration-300">
+                        <div class="mb-4 text-game-accent">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+            </div>
+                        <h3 class="text-xl font-bold text-game-light mb-2">Fresh Content</h3>
+                        <p class="text-game-secondary">New games added every week!</p>
+            </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+            <footer class="text-center text-game-secondary border-t border-game-primary border-opacity-20 pt-8">
+                <div class="mb-4 flex justify-center space-x-6">
+                    <a href="#" class="hover:text-game-accent transition-colors">About Us</a>
+                    <a href="#" class="hover:text-game-accent transition-colors">Contact</a>
+                    <a href="#" class="hover:text-game-accent transition-colors">Terms</a>
+                    <a href="#" class="hover:text-game-accent transition-colors">Privacy</a>
                 </div>
-            </a>
-
-            <!-- Music Now -->
-            <a href="games/music-now.html" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
-                    <div class="relative pb-[100%]">
-                        <img src="assets/images/music-now-preview.jpg" alt="Music Now" class="absolute inset-0 w-full h-full object-cover">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Music Now</h3>
-                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Music</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Archery World Tour -->
-            <a href="games/archery-world-tour.html" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-200 hover:scale-105">
-                    <div class="relative pb-[100%]">
-                        <img src="assets/images/archery-world-tour-preview.jpg" alt="Archery World Tour" class="absolute inset-0 w-full h-full object-cover">
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-semibold text-gray-800 group-hover:text-theme-blue">Archery World Tour</h3>
-                        <span class="inline-block px-2 py-1 text-sm text-white bg-theme-blue rounded-full mt-2">Sport</span>
-                    </div>
-                </div>
-            </a>
+            <p class="text-sm">
+                    © 2024 GameHere - Level Up Your Gaming Experience!
+            </p>
+        </footer>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t mt-12">
-        <div class="max-w-7xl mx-auto px-4 py-6">
-            <p class="text-center text-gray-600">&copy; 2024 GameHere - Your Online Gaming Destination</p>
-        </div>
-    </footer>
+    <script>
+        function filterGames(category) {
+            // 更新按钮状态
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category.toLowerCase())) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // 筛选游戏卡片
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 0);
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (cardCategory === category) {
+                        card.style.display = 'block';
+                        setTimeout(() => card.style.opacity = '1', 0);
+                    } else {
+                        card.style.opacity = '0';
+                        setTimeout(() => card.style.display = 'none', 300);
+                    }
+                }
+            });
+        }
+
+        // 初始化搜索功能
+        document.querySelector('input[type="search"]').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const gameCards = document.querySelectorAll('.game-card');
+            
+            gameCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 0);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
