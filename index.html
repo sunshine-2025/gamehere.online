@@ -63,7 +63,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            aspect-ratio: 16/9;
+            aspect-ratio: 1/1;
         }
         .game-card-container {
             height: 100%;
@@ -72,7 +72,7 @@
         }
         .game-preview-container {
             position: relative;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            padding-top: 100%; /* 1:1 Aspect Ratio */
             overflow: hidden;
         }
         .game-preview-container img {
@@ -93,13 +93,27 @@
             background-color: #6C5CE7;
             color: white;
         }
+        /* 评分样式 */
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .rating-stars {
+            color: #FFD700;
+            margin-right: 6px;
+        }
+        .rating-value {
+            font-weight: bold;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body class="bg-game-dark min-h-screen font-body text-game-light">
     <!-- Animated Background -->
     <div class="fixed inset-0 z-0 opacity-10">
         <div class="absolute inset-0 game-gradient"></div>
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')"></div>
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')"></div>
     </div>
 
     <div class="relative z-10">
@@ -144,23 +158,27 @@
 
             <!-- Featured Games Section -->
             <section class="mb-16">
-                <h2 class="font-game text-2xl md:text-3xl mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent">Featured Games</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <h2 class="font-game text-2xl md:text-3xl mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent">Featured Games</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <!-- Game Card 1 -->
                     <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="racing">
                         <a href="games/escape-road.html" class="block game-card-container">
                             <div class="game-preview-container">
                                 <img src="assets/images/escape-road-preview.jpg.png" alt="Escape Road Preview" class="game-preview-image">
-                                <div class="absolute top-4 right-4">
-                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Racing</span>
+                                <div class="absolute top-2 right-2">
+                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Racing</span>
                                 </div>
                             </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-game-light mb-2">Escape Road</h3>
-                                <p class="text-game-secondary">Navigate through challenging city streets in this thrilling driving adventure.</p>
-                                <div class="mt-4 flex items-center text-game-accent">
-                                    <span class="text-sm font-medium">Play Now</span>
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="p-3 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    <div class="rating-value text-game-accent">4.2/5</div>
+                                </div>
+                                <h3 class="text-lg font-bold text-game-light mb-1">Escape Road</h3>
+                                <p class="text-game-secondary text-sm">Navigate through challenging city streets in this thrilling driving adventure.</p>
+                                <div class="mt-2 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                     </svg>
                                 </div>
@@ -169,20 +187,24 @@
                     </div>
 
                     <!-- Game Card 2 -->
-                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="music">
-                        <a href="games/music-now.html" class="block game-card-container">
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="sports">
+                        <a href="games/archery-world-tour.html" class="block game-card-container">
                             <div class="game-preview-container">
-                                <img src="assets/images/music-now-preview.jpg.png" alt="Music Now Preview" class="game-preview-image">
-                                <div class="absolute top-4 right-4">
-                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Music</span>
+                                <img src="assets/images/archery-world-tour-preview.jpg.png" alt="Archery World Tour Preview" class="game-preview-image">
+                                <div class="absolute top-2 right-2">
+                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Sport</span>
                                 </div>
                             </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-game-light mb-2">Music Now</h3>
-                                <p class="text-game-secondary">Create beautiful melodies and explore the world of music.</p>
-                                <div class="mt-4 flex items-center text-game-accent">
-                                    <span class="text-sm font-medium">Play Now</span>
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="p-3 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars">★★★★★</div>
+                                    <div class="rating-value text-game-accent">4.8/5</div>
+                                </div>
+                                <h3 class="text-lg font-bold text-game-light mb-1">Archery World Tour</h3>
+                                <p class="text-game-secondary text-sm">Test your archery skills in exotic locations around the world!</p>
+                                <div class="mt-2 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                     </svg>
                                 </div>
@@ -190,29 +212,59 @@
                         </a>
                     </div>
 
-                    <!-- Game Card 3 -->
-                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="sports">
-                        <a href="games/archery-world-tour.html" class="block game-card-container">
+                    <!-- Game Card 3 - Garden Bloom -->
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="puzzle">
+                        <a href="games/garden-bloom.html" class="block game-card-container">
                             <div class="game-preview-container">
-                                <img src="assets/images/archery-world-tour-preview.jpg.png" alt="Archery World Tour Preview" class="game-preview-image">
-                                <div class="absolute top-4 right-4">
-                                    <span class="px-3 py-1 bg-game-primary text-white text-sm rounded-lg font-medium shadow-lg">Sport</span>
+                                <img src="assets/images/garden-bloom-preview.jpg.png" alt="Garden Bloom Preview" class="game-preview-image">
+                                <div class="absolute top-2 right-2">
+                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Puzzle</span>
                                 </div>
                             </div>
-                            <div class="p-6 flex-grow">
-                                <h3 class="text-xl font-bold text-game-light mb-2">Archery World Tour</h3>
-                                <p class="text-game-secondary">Test your archery skills in exotic locations around the world!</p>
-                                <div class="mt-4 flex items-center text-game-accent">
-                                    <span class="text-sm font-medium">Play Now</span>
-                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="p-3 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    <div class="rating-value text-game-accent">4.5/5</div>
+                                </div>
+                                <h3 class="text-lg font-bold text-game-light mb-1">Garden Bloom</h3>
+                                <p class="text-game-secondary text-sm">Create a beautiful garden and watch it bloom with vibrant colors!</p>
+                                <div class="mt-2 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                     </svg>
                                 </div>
                             </div>
                         </a>
                     </div>
-            </div>
-        </section>
+
+                    <!-- Game Card 4 - Bubble Tower 3D -->
+                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="puzzle">
+                        <a href="games/bubble-tower-3d.html" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="assets/images/bubble-tower-3d-preview.jpg.png" alt="Bubble Tower 3D Preview" class="game-preview-image">
+                                <div class="absolute top-2 right-2">
+                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Puzzle</span>
+                                </div>
+                            </div>
+                            <div class="p-3 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars">★★★★★</div>
+                                    <div class="rating-value text-game-accent">4.7/5</div>
+                                </div>
+                                <h3 class="text-lg font-bold text-game-light mb-1">Bubble Tower 3D</h3>
+                                <p class="text-game-secondary text-sm">Pop colorful bubbles and complete challenging 3D puzzle levels!</p>
+                                <div class="mt-2 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
 
             <!-- Features Section -->
             <section class="mb-16">
@@ -234,20 +286,20 @@
                         </div>
                         <h3 class="text-xl font-bold text-game-light mb-2">Instant Play</h3>
                         <p class="text-game-secondary">No downloads needed - play right in your browser!</p>
-            </div>
+                    </div>
                     <div class="bg-game-dark bg-opacity-50 rounded-xl p-8 transform hover:scale-105 transition-all duration-300">
                         <div class="mb-4 text-game-accent">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
                             </svg>
-            </div>
+                        </div>
                         <h3 class="text-xl font-bold text-game-light mb-2">Fresh Content</h3>
                         <p class="text-game-secondary">New games added every week!</p>
-            </div>
-            </div>
-        </section>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Footer -->
+            <!-- Footer -->
             <footer class="text-center text-game-secondary border-t border-game-primary border-opacity-20 pt-8">
                 <div class="mb-4 flex justify-center space-x-6">
                     <a href="#" class="hover:text-game-accent transition-colors">About Us</a>
@@ -255,10 +307,10 @@
                     <a href="#" class="hover:text-game-accent transition-colors">Terms</a>
                     <a href="#" class="hover:text-game-accent transition-colors">Privacy</a>
                 </div>
-            <p class="text-sm">
+                <p class="text-sm">
                     © 2024 GameHere - Level Up Your Gaming Experience!
-            </p>
-        </footer>
+                </p>
+            </footer>
         </div>
     </div>
 
