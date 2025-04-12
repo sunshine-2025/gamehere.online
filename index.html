@@ -28,7 +28,8 @@
                         'game-secondary': '#A3A1FF',
                         'game-accent': '#00D2D3',
                         'game-dark': '#2D3436',
-                        'game-light': '#DFE6E9'
+                        'game-light': '#DFE6E9',
+                        'nav-dark': '#1a1d21'
                     },
                     fontFamily: {
                         'game': ['"Press Start 2P"', 'cursive'],
@@ -120,73 +121,134 @@
     </style>
 </head>
 <body class="bg-game-dark min-h-screen font-body text-game-light">
-    <!-- Animated Background -->
-    <div class="fixed inset-0 z-0 opacity-10">
-        <div class="absolute inset-0 game-gradient"></div>
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')"></div>
+    <!-- Main Navigation -->
+    <nav class="bg-nav-dark border-b border-gray-800">
+        <div class="container mx-auto px-4 max-w-[1920px]">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#6C5CE7] to-[#00D2D3] font-game text-2xl md:text-3xl">GameHere</span>
+                    </a>
     </div>
 
-    <div class="relative z-10">
-        <div class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-                <h1 class="font-game text-5xl md:text-6xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent animate-pulse-soft">
-                    GameHere
-            </h1>
-                <p class="text-xl md:text-2xl text-game-secondary font-medium">
-                    Level Up Your Gaming Experience!
-            </p>
-        </header>
-
-            <!-- Enhanced Navigation -->
-            <nav class="mb-12">
-                <!-- Main Categories -->
-                <div class="flex flex-wrap justify-center gap-4 mb-6">
-                    <button onclick="filterGames('all')" class="category-btn active px-6 py-3 bg-game-primary text-white rounded-lg hover:bg-game-secondary transform hover:scale-105 transition-all font-medium">All Games</button>
-                    <button onclick="filterGames('action')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Action</button>
-                    <button onclick="filterGames('racing')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Racing</button>
-                    <button onclick="filterGames('puzzle')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Puzzle</button>
-                    <button onclick="filterGames('music')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Music</button>
-                    <button onclick="filterGames('sports')" class="category-btn px-6 py-3 bg-opacity-20 bg-game-light text-game-light rounded-lg hover:bg-game-primary transform hover:scale-105 transition-all font-medium">Sports</button>
+                <!-- Main Nav Items -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="flex items-center text-gray-300 hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                        Popular
+                    </a>
+                    <a href="#" class="flex items-center text-gray-300 hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        Trending
+                    </a>
+                    <a href="#" class="flex items-center text-gray-300 hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                        </svg>
+                        New
+                    </a>
+                    <a href="#" class="flex items-center text-gray-300 hover:text-white">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                        Favorites
+                    </a>
                 </div>
                 
-                <!-- Search Bar -->
-                <div class="max-w-2xl mx-auto mb-8">
+                <!-- Search and User -->
+                <div class="flex items-center space-x-4">
                     <div class="relative">
                         <input type="search" 
-                               placeholder="Search your next adventure..." 
-                               class="w-full px-6 py-3 rounded-lg bg-game-dark border-2 border-game-primary focus:outline-none focus:border-game-accent text-game-light placeholder-game-secondary"
+                               placeholder="Search games..." 
+                               class="w-64 px-4 py-1 rounded-lg bg-gray-800 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-game-primary"
                         >
-                        <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-game-primary hover:text-game-accent transition-colors">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
+                    </div>
+                    
+                    <!-- Notification Bell -->
+                    <button class="text-gray-300 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                        </svg>
+                    </button>
+
+                    <!-- User Profile -->
+                    <button class="text-gray-300 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
                         </button>
+                </div>
                     </div>
                 </div>
             </nav>
 
+    <!-- Categories Navigation -->
+    <div class="bg-nav-dark shadow-lg">
+        <div class="container mx-auto px-4 max-w-[1920px]">
+            <div class="flex items-center space-x-2 py-4 overflow-x-auto">
+                <button onclick="filterGames('all')" 
+                        class="category-btn active px-6 py-2 rounded-full bg-game-primary text-white hover:bg-game-secondary transition-all">
+                    All Games
+                </button>
+                <button onclick="filterGames('action')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Action
+                </button>
+                <button onclick="filterGames('adventure')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Adventure
+                </button>
+                <button onclick="filterGames('strategy')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Strategy
+                </button>
+                <button onclick="filterGames('sports')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Sports
+                </button>
+                <button onclick="filterGames('racing')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Racing
+                </button>
+                <button onclick="filterGames('puzzle')" 
+                        class="category-btn px-6 py-2 rounded-full bg-gray-800 text-gray-300 hover:bg-game-primary hover:text-white transition-all">
+                    Puzzle
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10">
+        <div class="container mx-auto px-4 py-8 max-w-[1920px]">
             <!-- Featured Games Section -->
-            <section class="mb-16">
-                <h2 class="font-game text-2xl md:text-3xl mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-game-primary to-game-accent">Featured Games</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <section class="mb-10">
+                <h2 class="font-game text-lg md:text-xl mb-4 text-left text-transparent bg-clip-text bg-gradient-to-r from-[#4A90E2] to-[#5AB9EA]" style="font-family: 'Press Start 2P', cursive;">Featured Games</h2>
+                <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-3">
                     <!-- Game Card 1 -->
-                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="racing">
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="racing">
                         <a href="games/escape-road.html" class="block game-card-container">
                             <div class="game-preview-container">
                                 <img src="assets/images/escape-road-preview.jpg.png" alt="Escape Road Preview" class="game-preview-image">
-                                <div class="absolute top-2 right-2">
-                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Racing</span>
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Racing</span>
                                 </div>
                             </div>
-                            <div class="p-3 flex-grow">
+                            <div class="p-2 flex-grow">
                                 <div class="rating">
-                                    <div class="rating-stars">★★★★☆</div>
-                                    <div class="rating-value text-game-accent">4.2/5</div>
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.2/5</div>
                                 </div>
-                                <h3 class="text-lg font-bold text-game-light mb-1">Escape Road</h3>
-                                <p class="text-game-secondary text-sm">Navigate through challenging city streets in this thrilling driving adventure.</p>
-                                <div class="mt-2 flex items-center text-game-accent">
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Escape Road</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Navigate through challenging city streets in this thrilling driving adventure.</p>
+                                <div class="mt-1 flex items-center text-game-accent">
                                     <span class="text-xs font-medium">Play Now</span>
                                     <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -197,22 +259,22 @@
                     </div>
 
                     <!-- Game Card 3 - Garden Bloom -->
-                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="puzzle">
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="puzzle">
                         <a href="games/garden-bloom.html" class="block game-card-container">
                             <div class="game-preview-container">
                                 <img src="assets/images/garden-bloom-preview.jpg.png" alt="Garden Bloom Preview" class="game-preview-image">
-                                <div class="absolute top-2 right-2">
-                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Puzzle</span>
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Puzzle</span>
                                 </div>
                             </div>
-                            <div class="p-3 flex-grow">
+                            <div class="p-2 flex-grow">
                                 <div class="rating">
-                                    <div class="rating-stars">★★★★☆</div>
-                                    <div class="rating-value text-game-accent">4.5/5</div>
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.5/5</div>
                                 </div>
-                                <h3 class="text-lg font-bold text-game-light mb-1">Garden Bloom</h3>
-                                <p class="text-game-secondary text-sm">Create a beautiful garden and watch it bloom with vibrant colors!</p>
-                                <div class="mt-2 flex items-center text-game-accent">
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Garden Bloom</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Create a beautiful garden and watch it bloom with vibrant colors!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
                                     <span class="text-xs font-medium">Play Now</span>
                                     <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -223,22 +285,205 @@
                     </div>
 
                     <!-- Game Card 4 - Bubble Tower 3D -->
-                    <div class="relative game-card bg-game-dark rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2" data-category="puzzle">
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="puzzle">
                         <a href="games/bubble-tower-3d.html" class="block game-card-container">
                             <div class="game-preview-container">
                                 <img src="assets/images/bubble-tower-3d-preview.jpg.png" alt="Bubble Tower 3D Preview" class="game-preview-image">
-                                <div class="absolute top-2 right-2">
-                                    <span class="px-2 py-1 bg-game-primary text-white text-xs rounded-lg font-medium shadow-lg">Puzzle</span>
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Puzzle</span>
                                 </div>
                             </div>
-                            <div class="p-3 flex-grow">
+                            <div class="p-2 flex-grow">
                                 <div class="rating">
-                                    <div class="rating-stars">★★★★★</div>
-                                    <div class="rating-value text-game-accent">4.7/5</div>
+                                    <div class="rating-stars text-sm">★★★★★</div>
+                                    <div class="rating-value text-game-accent text-xs">4.7/5</div>
                                 </div>
-                                <h3 class="text-lg font-bold text-game-light mb-1">Bubble Tower 3D</h3>
-                                <p class="text-game-secondary text-sm">Pop colorful bubbles and complete challenging 3D puzzle levels!</p>
-                                <div class="mt-2 flex items-center text-game-accent">
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Bubble Tower 3D</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Pop colorful bubbles and complete challenging 3D puzzle levels!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 添加更多游戏卡片 -->
+                    <!-- Game Card 5 - Action Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="action">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Action+Game" alt="Action Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Action</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.3/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Ninja Warrior</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Master ninja skills and overcome challenging obstacles!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 6 - Strategy Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="strategy">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Strategy+Game" alt="Strategy Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Strategy</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.4/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Empire Builder</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Build and expand your empire through strategic decisions!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 7 - Sports Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="sports">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Sports+Game" alt="Sports Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Sports</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.6/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Soccer Star</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Score amazing goals and become a soccer legend!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 8 - Adventure Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="adventure">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Adventure+Game" alt="Adventure Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Adventure</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★★</div>
+                                    <div class="rating-value text-game-accent text-xs">4.8/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Mystery Island</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Explore a mysterious island full of treasures and danger!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 9 - Puzzle Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="puzzle">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Puzzle+Game" alt="Puzzle Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Puzzle</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.1/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Brain Challenge</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Test your brain with challenging puzzles and riddles!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 10 - Racing Game -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="racing">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Racing+Game" alt="Racing Game Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Racing</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.5/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Speed Racer</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Race at breakneck speeds on futuristic tracks!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
+                                    <span class="text-xs font-medium">Play Now</span>
+                                    <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Game Card 11 - Action Game 2 -->
+                    <div class="relative game-card bg-game-dark rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-category="action">
+                        <a href="#" class="block game-card-container">
+                            <div class="game-preview-container">
+                                <img src="https://via.placeholder.com/300x300/2D3436/FFFFFF?text=Action+Game+2" alt="Action Game 2 Preview" class="game-preview-image">
+                                <div class="absolute top-1 right-1">
+                                    <span class="px-2 py-0.5 bg-game-primary text-white text-xs rounded-md font-medium shadow-lg">Action</span>
+                                </div>
+                            </div>
+                            <div class="p-2 flex-grow">
+                                <div class="rating">
+                                    <div class="rating-stars text-sm">★★★★☆</div>
+                                    <div class="rating-value text-game-accent text-xs">4.0/5</div>
+                                </div>
+                                <h3 class="text-base font-bold text-game-light mb-0.5">Robot Fight</h3>
+                                <p class="text-game-secondary text-xs line-clamp-2">Control powerful robots in epic arena battles!</p>
+                                <div class="mt-1 flex items-center text-game-accent">
                                     <span class="text-xs font-medium">Play Now</span>
                                     <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -252,7 +497,7 @@
 
             <!-- Features Section -->
             <section class="mb-16">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8">
                     <div class="bg-game-dark bg-opacity-50 rounded-xl p-8 transform hover:scale-105 transition-all duration-300">
                         <div class="mb-4 text-game-accent">
                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
