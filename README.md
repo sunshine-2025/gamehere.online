@@ -14,14 +14,16 @@ GameHere/
 │       ├── bubble-tower-3d-preview.jpg.png
 │       ├── Contract Deer Hunter.jpg.png
 │       ├── Chess Online.png
-│       └── Sprunki.png
+│       ├── Sprunki.png
+│       └── Space Waves.png
 ├── games/                  # 游戏详情页面
 │   ├── escape-road.html
 │   ├── garden-bloom.html
 │   ├── bubble-tower-3d.html
 │   ├── contract-deer-hunter.html
 │   ├── chess-online.html
-│   └── sprunki.html
+│   ├── sprunki.html
+│   └── space-waves.html
 └── README.md               # 项目说明文件
 ```
 
@@ -104,6 +106,12 @@ GameHere/
     - 页面：`games/sprunki.html`
     - Iframe 链接：`https://cloud.onlinegames.io/games/2024/more2/sprunki/index.html`
     - 描述：一个有趣的益智游戏，通过匹配彩色球来挑战你的策略能力。
+
+7.  **Space Waves**
+    - 类型：Action
+    - 页面：`games/space-waves.html`
+    - Iframe 链接：`https://games.crazygames.com/en_US/space-waves/index.html`
+    - 描述：在太空中驾驶飞船，击败敌人，完成挑战性的关卡。
 
 **注意:** Chess Online 的 iframe 链接为示例，实际嵌入可能需要不同的平台或实现方式。
 
